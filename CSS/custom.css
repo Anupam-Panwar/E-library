@@ -1,0 +1,105 @@
+/*background image*/
+body {
+    background: #6190E8;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #A7BFE8, #6190E8);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #A7BFE8, #6190E8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+
+/* Images of card */
+.card-img-top {
+  /*height: 11vw;*/
+  object-fit: cover;
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .card-img-top {
+    height: 20vw;
+  }
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .card-img-top {
+    height: 18vw;
+  }
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .card-img-top {
+    height: 16vw;
+  }
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 992px) {
+  .card-img-top {
+    height: 16vw;
+  }
+}
+
+.card {
+  transition: all 0.5s ease;
+  opacity: 0.95;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+/* Form */
+.customform {
+  border: 0.125rem solid #21759b;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  opacity: 0.95;
+}
+
+.customform input {
+  border: 1px solid rgba(0, 0, 0, 0.507);
+}
+
+.customform textarea {
+  border: 1px solid rgba(0, 0, 0, 0.507);
+}
+
+.customform label {
+  font-size: larger;
+}
+
+/* alignment of description */
+.bookcover {
+  object-fit: cover;
+  height: 90vh;
+}
+.description
+{
+    height: 57vh;
+}
+
+
+/* Opacity adjustment */
+.navbar {
+  opacity: 0.97;
+}
+
+.book {
+  background-color: white;
+  opacity: 0.93;
+}
+
+/* iframe adjustment */
+.ifr {
+  height: 100vh;
+  width: 100vw;
+  opacity: 0.95;
+}
+
+
+/* Pagination */
+.pagination
+{
+    opacity: 0.85;
+    margin-top: 2vh;
+    padding-top: 2vh;
+}
