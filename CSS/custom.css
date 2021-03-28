@@ -70,11 +70,10 @@ body {
 /* alignment of description */
 .bookcover {
   object-fit: cover;
-  height: 90vh;
 }
 .description
 {
-    height: 57vh;
+    max-height: 36rem;
 }
 
 
