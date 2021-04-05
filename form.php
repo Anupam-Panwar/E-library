@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
+    <!--  meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -17,10 +17,10 @@
     <!-- Navbar -->
     <nav class="navbar navbar-light bg-light sticky-top">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="index.php">
           <img
-            src="images/472b263c184dc03f9a5bf235183706e5.jpg"
-            alt=""
+            src="images/logo.jpg"
+            alt="logo"
             width="35"
             height="35"
             class="d-inline-block align-top rounded-circle"
@@ -29,19 +29,18 @@
         </a>
       </div>
     </nav>
-
     <!-- Form -->
-    <form class="mx-4 m-3 p-3 customform">
+    <form class="mx-4 m-3 p-3 customform" action="insert.php" method="post">
       <div class="row mb-3">
         <label for="Name" class="col-sm-2 col-form-label">Name</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="Name" required />
+          <input type="text" class="form-control" name="name"  />
         </div>
       </div>
       <div class="row mb-3">
         <label for="Author" class="col-sm-2 col-form-label">Author Name</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="Author" required/>
+          <input type="text" class="form-control" name="author" />
         </div>
       </div>
       <div class="row mb-3">
@@ -49,13 +48,7 @@
           >Cover Img Url</label
         >
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="Cover Img Url" required/>
-        </div>
-      </div>
-      <div class="row mb-3">
-        <label for="Book Url" class="col-sm-2 col-form-label">Book Url</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="Book Url" required/>
+          <input type="text" class="form-control" name="coverimg" />
         </div>
       </div>
       <div class="row mb-3">
@@ -63,14 +56,13 @@
           >Description</label
         >
         <div class="col-sm-10">
-          <textarea class="form-control" id="Description" rows="5" required></textarea>
+          <textarea class="form-control" name="description" rows="5" ></textarea>
         </div>
       </div>
       <div class="d-grid gap-2">
         <input
           class="btn btn-primary"
           type="submit"
-      
         />
       </div>
     </form>

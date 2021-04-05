@@ -73,7 +73,7 @@ body {
 }
 .description
 {
-    max-height: 36rem;
+    max-height: 40rem;
 }
 
 
@@ -85,13 +85,6 @@ body {
 .book {
   background-color: white;
   opacity: 0.93;
-}
-
-/* iframe adjustment */
-.ifr {
-  height: 100vh;
-  width: 100vw;
-  opacity: 0.95;
 }
 
 
