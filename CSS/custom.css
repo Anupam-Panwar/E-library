@@ -95,3 +95,9 @@ body {
     margin-top: 2vh;
     padding-top: 2vh;
 }
+
+/*alert */
+.alert
+{
+    border-radius: 10px;
+}
