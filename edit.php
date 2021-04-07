@@ -18,6 +18,7 @@
 <body>
     <?php
     if (isset($_GET['id'])) {
+        $id = $_GET['id'];
     ?>
         <!-- Navbar -->
         <nav class="navbar navbar-light bg-light sticky-top">
@@ -31,32 +32,39 @@
         <!-- Form -->
         <?php
         require_once __DIR__ . '\connection\connect.php';
-        $id = $_GET['id'];
         $sql = "SELECT name,author,cover_img_url,description FROM books WHERE id=$id";
         $result = $conn->query($sql);
         $row = $result->fetch_assoc();
         ?>
         <form class="mx-4 m-3 p-3 customform" action="update.php?id=<?php echo $id ?>" method="post">
+        <?php
+        if (isset($_GET['msg'])) {
+        ?>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong><?php echo $_GET['msg'] ?></strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php } ?>
             <div class="row mb-3">
-                <label for="Name" class="col-sm-2 col-form-label">Name</label>
+                <label for="Name" class="col-sm-2 col-form-label">Name (*)</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" name="name" value="<?php echo $row['name']; ?>" />
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="Author" class="col-sm-2 col-form-label">Author Name</label>
+                <label for="Author" class="col-sm-2 col-form-label">Author Name (*)</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" name="author" value="<?php echo $row['author']; ?>" />
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="Cover Img Url" class="col-sm-2 col-form-label">Cover Img Url</label>
+                <label for="Cover Img Url" class="col-sm-2 col-form-label">Cover Img Url (*)</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" name="coverimg" value="<?php echo $row['cover_img_url']; ?>" />
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="Description" class="col-sm-2 col-form-label">Description</label>
+                <label for="Description" class="col-sm-2 col-form-label">Description (*)</label>
                 <div class="col-sm-10">
                     <textarea class="form-control" name="description" rows="5"><?php echo $row['description']; ?></textarea>
                 </div>
@@ -66,9 +74,7 @@
             </div>
         </form>
     <?php
-    } 
-    else 
-    {
+    } else {
         header('Location: index.php');
         exit();
     }

@@ -28,8 +28,15 @@
             </a>
         </div>
     </nav>
-
     <!-- Grid View -->
+    <?php
+    if (isset($_GET['msg'])) {
+    ?>
+        <div class="alert alert-primary alert-dismissible fade show m-2" role="alert">
+            <strong><?php echo $_GET['msg'] ?></strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php } ?>
     <div class="row row-cols-1 row-cols-md-3 g-5 m-2">
         <?php
         require_once __DIR__ . '\connection\connect.php';
@@ -57,23 +64,21 @@
     </div>
 
     <!-- pagination -->
-    <nav aria-label="Page navigation example">
+    <!-- <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             <li class="page-item">
                 <a class="page-link" href="#" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
             <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
             <li class="page-item">
                 <a class="page-link" href="#" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>
         </ul>
-    </nav>
+    </nav> -->
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>

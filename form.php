@@ -36,25 +36,25 @@
         </div>
     <?php } ?>
         <div class="row mb-3">
-            <label for="Name" class="col-sm-2 col-form-label">Name</label>
+            <label for="Name" class="col-sm-2 col-form-label">Name (*)</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" name="name" />
             </div>
         </div>
         <div class="row mb-3">
-            <label for="Author" class="col-sm-2 col-form-label">Author Name</label>
+            <label for="Author" class="col-sm-2 col-form-label">Author Name (*)</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" name="author" />
             </div>
         </div>
         <div class="row mb-3">
-            <label for="Cover Img Url" class="col-sm-2 col-form-label">Cover Img Url</label>
+            <label for="Cover Img Url" class="col-sm-2 col-form-label">Cover Img Url (*)</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" name="coverimg" />
             </div>
         </div>
         <div class="row mb-3">
-            <label for="Description" class="col-sm-2 col-form-label">Description</label>
+            <label for="Description" class="col-sm-2 col-form-label">Description (*)</label>
             <div class="col-sm-10">
                 <textarea class="form-control" name="description" rows="5"></textarea>
             </div>

@@ -15,20 +15,49 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $author = validate($_POST['author']);
     $image = validate($_POST['coverimg']);
     $des = validate($_POST['description']);
+    if (empty($name)) {
+        header('Location: edit.php?id='.$id.'&msg=Name of Book is required');
+        exit();
+    }
+    if (!preg_match("/^[a-zA-Z-' ]*$/", $name)) {
+        header('Location: edit.php?id='.$id.'&msg=Enter valid Book Name');
+        exit();
+    }
+    if (empty($author)) {
+        header('Location: edit.php?id='.$id.'&msg=Author is required');
+        exit();
+    }
+    if (!preg_match("/^[a-zA-Z-' ]*$/", $author)) {
+        header('Location: edit.php?id='.$id.'&msg=Enter valid Author Name');
+        exit();
+    }
+    if (empty($image)) {
+        header('Location: edit.php?id='.$id.'&msg=Cover Image of Book is required');
+        exit();
+    }
+    function validImage($file)
+    {
+        $size = getimagesize($file);
+        return (strtolower(substr($size['mime'], 0, 5)) == 'image' ? true : false);
+    }
+    if (!validImage($image)) {
+        header('Location: edit.php?id='.$id.'&msg=Enter valid Cover Image URL');
+        exit();
+    }
+    if (empty($des)) {
+        header('Location: edit.php?id='.$id.'&msg=Description of Book is required');
+        exit();
+    }
     $sql = "UPDATE books SET name='$name',author='$author',cover_img_url='$image',description='$des' WHERE id=" . $id;
-    if ($conn->query($sql) === TRUE) 
-    {
-        header("Location: detail.php?id='$id'");
+    if ($conn->query($sql) === TRUE) {
+        header("Location: detail.php?id=".$id."&msg=UPDATED SUCCESSFULLY");
+        exit();
+    } else {
+        header("Location: detail.php?id=".$id."&msg=ERROR UPDATING RECORD");
         exit();
     }
-    else
-    {
-        header('Location: detail.php?error=ERROR OCCURED');
-        exit();
-    }
-}
-else
-{
-    header('Location: detail.php');
+} else {
+    $id = validate($_GET['id']);
+    header('Location: index.php?msg=ERROR OCCURED');
     exit();
 }

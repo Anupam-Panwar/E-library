@@ -12,8 +12,9 @@
     <!-- Custom CSS -->
     <link href="CSS/custom.css" rel="stylesheet" type="text/css" />
 
-    <title>Book Detial</title>
+    <title>Book Detail</title>
 </head>
+
 <body>
     <?php
     if (isset($_GET['id'])) {
@@ -30,13 +31,20 @@
                 </a>
             </div>
         </nav>
-
+        <?php
+        if (isset($_GET['msg'])) {
+        ?>
+            <div class="alert alert-primary alert-dismissible fade show m-2" role="alert">
+                <strong><?php echo $_GET['msg'] ?></strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php } ?>
         <!-- Book Details -->
         <div class="container p-2 my-4 book">
             <?php
             require_once __DIR__ . '\connection\connect.php';
             $id = $_GET['id'];
-            $sql = "SELECT name,author,cover_img_url,description FROM books WHERE id=".$id;
+            $sql = "SELECT name,author,cover_img_url,description FROM books WHERE id=" . $id;
             $result = $conn->query($sql);
             $row = $result->fetch_assoc();
             ?>
@@ -52,8 +60,10 @@
 
                         <p class="lead"><?php echo $row['author']; ?></p>
                         <div class="d-grid gap-2 d-md-block">
-                            <button class="btn btn-primary" type="button" onclick="location.href='edit.php?id=<?php echo $id; ?>'">
-                                Edit Book
+                            <button class="btn btn-primary" type="button">
+                                <a href="edit.php?id=<?php echo $id; ?>" class="nodecoration">
+                                    Edit Book
+                                </a>
                             </button>
                             <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 Delete Book
@@ -93,12 +103,11 @@
             <!--Bootstrap Bundle with Popper -->
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
         <?php
-    } 
-    else
-    {
+    } else {
         header('Location: index.php');
         exit();
     }
         ?>
 </body>
+
 </html>

@@ -101,3 +101,14 @@ body {
 {
     border-radius: 10px;
 }
+
+/* Decoration */
+.nodecoration
+{
+    text-decoration: none;
+    color: white;
+}
+.nodecoration:hover
+{
+    color: white;
+}
