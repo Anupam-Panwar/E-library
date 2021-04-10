@@ -27,7 +27,7 @@
                     E-library
                 </a>
                 <a href="form.php">
-                    <button type="button" class="btn btn-primary">Add book</button>
+                <button class="btn btn-outline-primary">Add Book</button>
                 </a>
             </div>
         </nav>
