@@ -1,9 +1,9 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    require_once __DIR__ . '\connection\connect.php';
+    require_once __DIR__ . '/connection/connect.php';
     function validate($data)
     {
-        require __DIR__ . '\connection\connect.php';
+        require __DIR__ . '/connection/connect.php';
         $data = trim($data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
@@ -17,10 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $des = validate($_POST['description']);
     if (empty($name)) {
         header('Location: edit.php?id='.$id.'&msg=Name of Book is required');
-        exit();
-    }
-    if (!preg_match("/^[a-zA-Z-' ]*$/", $name)) {
-        header('Location: edit.php?id='.$id.'&msg=Enter valid Book Name');
         exit();
     }
     if (empty($author)) {
@@ -56,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header("Location: detail.php?id=".$id."&msg=ERROR UPDATING RECORD");
         exit();
     }
+    require_once __DIR__ . '/connection/disconnect.php';
 } else {
     $id = validate($_GET['id']);
     header('Location: index.php?msg=ERROR OCCURED');

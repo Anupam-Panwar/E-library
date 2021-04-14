@@ -2,15 +2,7 @@
 <html lang="en">
 
 <head>
-    <!--  meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- Bootstrap CSS -->
-    <link href="CSS/bootstrap.min.css" rel="stylesheet" type="text/css" />
-
-    <!-- Custom CSS -->
-    <link href="CSS/custom.css" rel="stylesheet" type="text/css" />
+    <?php require __DIR__ ."/utility/head_info.php"; ?>
 
     <title>Add Book</title>
 </head>
@@ -36,27 +28,27 @@
         </div>
     <?php } ?>
         <div class="row mb-3">
-            <label for="Name" class="col-sm-2 col-form-label">Name (*)</label>
+            <label for="Name" class="col-sm-2 col-form-label">Name <span class="text-danger">*</span></label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" name="name" />
+                <input type="text" class="form-control" name="name" value="<?php if (isset($_GET['name'])) echo $_GET['name']; ?> "/>
             </div>
         </div>
         <div class="row mb-3">
-            <label for="Author" class="col-sm-2 col-form-label">Author Name (*)</label>
+            <label for="Author" class="col-sm-2 col-form-label">Author Name <span class="text-danger">*</span></label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" name="author" />
+                <input type="text" class="form-control" name="author" value="<?php if (isset($_GET['author'])) echo $_GET['author']; ?>" />
             </div>
         </div>
         <div class="row mb-3">
-            <label for="Cover Img Url" class="col-sm-2 col-form-label">Cover Img Url (*)</label>
+            <label for="Cover Img Url" class="col-sm-2 col-form-label">Cover Img Url <span class="text-danger">*</span></label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" name="coverimg" />
+                <input type="text" class="form-control" name="coverimg" value="<?php if (isset($_GET['image'])) echo $_GET['image']; ?>" />
             </div>
         </div>
         <div class="row mb-3">
-            <label for="Description" class="col-sm-2 col-form-label">Description (*)</label>
+            <label for="Description" class="col-sm-2 col-form-label">Description <span class="text-danger">*</span></label>
             <div class="col-sm-10">
-                <textarea class="form-control" name="description" rows="5"></textarea>
+                <textarea class="form-control" name="description" rows="5"><?php if (isset($_GET['des'])) echo $_GET['des']; ?></textarea>
             </div>
         </div>
         <div class="d-grid gap-2">
@@ -64,8 +56,7 @@
         </div>
     </form>
 
-    <!--  Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <?php require __DIR__ ."/utility/foot_info.php"; ?>
 </body>
 
 </html>

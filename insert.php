@@ -1,9 +1,9 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    require_once __DIR__ . '\connection\connect.php';
+    require_once __DIR__ . '/connection/connect.php';
     function validate($data)
     {
-        require __DIR__ . '\connection\connect.php';
+        require __DIR__ . '/connection/connect.php';
         $data = trim($data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
@@ -15,23 +15,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $image = validate($_POST['coverimg']);
     $des = validate($_POST['description']);
     if (empty($name)) {
-        header('Location: form.php?msg=Name of Book is required');
-        exit();
-    }
-    if (!preg_match("/^[a-zA-Z-' ]*$/", $name)) {
-        header('Location: form.php?msg=Enter valid Book Name');
+        header('Location: form.php?msg=Name of Book is required&author='.$author.'&image='.$image.'&des='.$des);
         exit();
     }
     if (empty($author)) {
-        header('Location: form.php?msg=Author is required');
+        header('Location: form.php?msg=Author is required&name='.$name.'&image='.$image.'&des='.$des);
         exit();
     }
     if (!preg_match("/^[a-zA-Z-' ]*$/", $author)) {
-        header('Location: form.php?msg=Enter valid Author Name');
+        header('Location: form.php?msg=Enter valid Author Name&name='.$name.'&image='.$image.'&des='.$des);
         exit();
     }
     if (empty($image)) {
-        header('Location: form.php?msg=Cover Image of Book is required');
+        header('Location: form.php?msg=Cover Image of Book is required&name='.$name.'&author='.$author.'&des='.$des);
         exit();
     }
     function validImage($file) {
@@ -39,11 +35,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         return (strtolower(substr($size['mime'], 0, 5)) == 'image' ? true : false);  
      }
     if (!validImage($image)) {
-        header('Location: form.php?msg=Enter valid Cover Image URL');
+        header('Location: form.php?msg=Enter valid Cover Image URL&name='.$name.'&author='.$author.'&des='.$des);
         exit();
     }
     if (empty($des)) {
-        header('Location: form.php?msg=Description of Book is required');
+        header('Location: form.php?msg=Description of Book is required&name='.$name.'&author='.$author.'&img='.$image);
         exit();
     }
     $sql = "SELECT id FROM books WHERE name='$name' AND author='$author'";
@@ -61,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $result = $conn->query($sql);
         $row = $result->fetch_assoc();
         $id = $row['id'];
-        require_once __DIR__ . '\connection\disconnect.php';
+        require_once __DIR__ . '/connection/disconnect.php';
         header("Location: detail.php?id=".$id."&msg=Book Added Successfully");
         exit();
     } else {

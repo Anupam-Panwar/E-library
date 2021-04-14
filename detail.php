@@ -2,16 +2,7 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- Bootstrap CSS -->
-    <link href="CSS/bootstrap.min.css" rel="stylesheet" type="text/css" />
-
-    <!-- Custom CSS -->
-    <link href="CSS/custom.css" rel="stylesheet" type="text/css" />
-
+    <?php require __DIR__ ."/utility/head_info.php"; ?>
     <title>Book Detail</title>
 </head>
 
@@ -42,7 +33,7 @@
         <!-- Book Details -->
         <div class="container p-2 my-4 book">
             <?php
-            require_once __DIR__ . '\connection\connect.php';
+            require_once __DIR__ . '/connection/connect.php';
             $id = $_GET['id'];
             $sql = "SELECT name,author,cover_img_url,description FROM books WHERE id=" . $id;
             $result = $conn->query($sql);
@@ -79,6 +70,10 @@
         </div>
         </div>
         </div>
+        <?php 
+        require_once __DIR__ . '/connection/connect.php';
+        require __DIR__ ."/utility/foot_info.php";
+        ?>
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -99,10 +94,8 @@
                     </div>
                 </div>
             </div>
-
-            <!--Bootstrap Bundle with Popper -->
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-        <?php
+            
+        <?php 
     } else {
         header('Location: index.php');
         exit();
