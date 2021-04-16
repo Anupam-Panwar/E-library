@@ -12,7 +12,8 @@ $sql = "SELECT * FROM books";
 $result = $conn->query($sql);
 $total_rows = $result->num_rows;
 $total_pages = ceil($total_rows / $no_of_records_per_page);
-$sql = "SELECT id,name,author,cover_img_url FROM books LIMIT $offset, $no_of_records_per_page";
+$seq=$_SESSION['sort'];
+$sql = "SELECT id,name,author,cover_img_url FROM books ORDER BY name $seq LIMIT $offset, $no_of_records_per_page ";
 $result = $conn->query($sql);
 ?>
 <div class="row row-cols-1 row-cols-md-3 g-5 m-2">

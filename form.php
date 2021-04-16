@@ -9,14 +9,9 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-light bg-light sticky-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">
-                <img src="images/logo.jpg" alt="logo" width="35" height="35" class="d-inline-block align-top rounded-circle" />
-                E-library
-            </a>
-        </div>
-    </nav>
+    <?php 
+    $type='form';
+    require __DIR__.'/utility/header.php'; ?>
     <!-- Form -->
     <form class="mx-4 m-3 p-3 customform" action="insert.php" method="post">
     <?php

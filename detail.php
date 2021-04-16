@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <?php require __DIR__ ."/utility/head_info.php"; ?>
+    <?php require __DIR__ . "/utility/head_info.php"; ?>
     <title>Book Detail</title>
 </head>
 
@@ -11,18 +11,9 @@
     if (isset($_GET['id'])) {
     ?>
         <!--Navbar-->
-        <nav class="navbar navbar-light bg-light sticky-top">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.php">
-                    <img src="images/logo.jpg" alt="logo" width="35" height="35" class="d-inline-block align-top rounded-circle" />
-                    E-library
-                </a>
-                <a href="form.php">
-                <button class="btn btn-outline-primary">Add Book</button>
-                </a>
-            </div>
-        </nav>
-        <?php
+        <?php 
+        $type='detail';
+        require __DIR__ . '/utility/header.php'; 
         if (isset($_GET['msg'])) {
         ?>
             <div class="alert alert-primary alert-dismissible fade show m-2" role="alert">
@@ -70,9 +61,9 @@
         </div>
         </div>
         </div>
-        <?php 
+        <?php
         require_once __DIR__ . '/connection/connect.php';
-        require __DIR__ ."/utility/foot_info.php";
+        require __DIR__ . "/utility/foot_info.php";
         ?>
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -94,8 +85,8 @@
                     </div>
                 </div>
             </div>
-            
-        <?php 
+
+        <?php
     } else {
         header('Location: index.php');
         exit();
