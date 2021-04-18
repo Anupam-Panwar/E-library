@@ -30,13 +30,18 @@ if ($type == 'index') {
                         <a class="nav-link active " aria-current="page" href="form.php" style="text-decoration: none;">Add book</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="?sort_book=<?php $temp1=($_SESSION['sort']=='ASC')? 1 : 2; echo $temp1; ?>&pageno=<?php $temp=isset($_GET['pageno'])?$_GET['pageno']:1; echo $temp; ?>">Sort <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-up" viewBox="0 0 16 16">
+                        <a class="nav-link active" href="?sort_book=<?php
+                         $temp1=($_SESSION['sort']=='ASC')? 1 : 2; echo $temp1; ?>&pageno=<?php 
+                         $temp=isset($_GET['pageno'])?$_GET['pageno']:1; echo $temp; 
+                         if(isset($_GET['book_search'])) echo "&book_search=".$_GET['book_search'];?>">Sort <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-up" viewBox="0 0 16 16">
                                 <path d="M3.5 12.5a.5.5 0 0 1-1 0V3.707L1.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L3.5 3.707V12.5zm3.5-9a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zM7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z" />
                             </svg></a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-1" type="search" placeholder="Search Book" aria-label="Search">
+                <form class="d-flex" action="" method="GET">
+                    <input class="form-control me-1" type="search" name="book_search" placeholder="Search Book" aria-label="Search" value="<?php 
+                    if(isset($_GET['book_search'])) 
+                    echo $_GET['book_search']; ?>" >
                     <button class="btn btn-outline-primary" type="submit">Search</button>
                 </form>
             </div>

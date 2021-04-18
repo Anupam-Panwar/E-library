@@ -8,12 +8,25 @@ $no_of_records_per_page = 6;
 $offset = ($pageno - 1) * $no_of_records_per_page;
 
 require_once __DIR__ . '/connection/connect.php';
-$sql = "SELECT * FROM books";
+if (isset($_GET['book_search'])) {
+    $sql="SELECT * FROM books WHERE name LIKE '%".$_GET['book_search']."%' OR author LIKE  '%".$_GET['book_search']."%'";
+} else {
+    $sql = "SELECT * FROM books";
+}
 $result = $conn->query($sql);
 $total_rows = $result->num_rows;
+if($total_rows==0)
+{
+    header('Location: index.php?msg=No result found');
+    exit();
+}
 $total_pages = ceil($total_rows / $no_of_records_per_page);
-$seq=$_SESSION['sort'];
-$sql = "SELECT id,name,author,cover_img_url FROM books ORDER BY name $seq LIMIT $offset, $no_of_records_per_page ";
+$seq = $_SESSION['sort'];
+if (isset($_GET['book_search'])) {
+    $sql = "SELECT id,name,author,cover_img_url FROM books WHERE name LIKE '%".$_GET['book_search']."%' OR author LIKE  '%".$_GET['book_search']."%' ORDER BY name $seq LIMIT $offset, $no_of_records_per_page ";
+} else {
+    $sql = "SELECT id,name,author,cover_img_url FROM books ORDER BY name $seq LIMIT $offset, $no_of_records_per_page ";
+}
 $result = $conn->query($sql);
 ?>
 <div class="row row-cols-1 row-cols-md-3 g-5 m-2">
@@ -45,7 +58,10 @@ require_once __DIR__ . '/connection/disconnect.php';
 <!-- pagination -->
 <nav aria-label="Page navigation example" style="display:flex; justify-content:center">
     <ul class="pagination ">
-        <li><a class="page-link" aria-label="First" href="?pageno=1">
+        <li><a class="page-link" aria-label="First" href="?pageno=1<?php
+        if (isset($_GET['book_search']))
+        echo "&book_search=".$_GET['book_search'];
+        ?>">
                 <span aria-hidden="true"> &laquo;</span></a></li>
         <li class="<?php if ($pageno <= 1) {
                         echo 'disabled';
@@ -70,7 +86,10 @@ require_once __DIR__ . '/connection/disconnect.php';
                 <span aria-hidden="true">&#155;</span>
             </a>
         </li>
-        <li><a class="page-link" aria-label="last" href="?pageno=<?php echo $total_pages; ?>"><span aria-hidden="true">&raquo; </span></a></li>
+        <li><a class="page-link" aria-label="last" href="?pageno=<?php echo $total_pages;
+        if (isset($_GET['book_search']))
+        echo "&book_search=".$_GET['book_search'];
+        ?>"><span aria-hidden="true">&raquo; </span></a></li>
 
     </ul>
 
