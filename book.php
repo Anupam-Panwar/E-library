@@ -4,7 +4,7 @@ if (isset($_GET['pageno'])) {
 } else {
     $pageno = 1;
 }
-$no_of_records_per_page = 6;
+$no_of_records_per_page = 9;
 $offset = ($pageno - 1) * $no_of_records_per_page;
 
 require_once __DIR__ . '/connection/connect.php';

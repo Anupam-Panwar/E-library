@@ -34,25 +34,25 @@
             <div class="row mb-3">
                 <label for="Name" class="col-sm-2 col-form-label">Name <span class="text-danger">*</span></label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="name" value="<?php echo $row['name']; ?>" />
+                    <input type="text" class="form-control" name="name" value="<?php echo $row['name']; ?>"  required/>
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="Author" class="col-sm-2 col-form-label">Author Name <span class="text-danger">*</span></label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="author" value="<?php echo $row['author']; ?>" />
+                    <input type="text" class="form-control" name="author" value="<?php echo $row['author']; ?>"  required/>
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="Cover Img Url" class="col-sm-2 col-form-label">Cover Img Url <span class="text-danger">*</span></label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="coverimg" value="<?php echo $row['cover_img_url']; ?>" />
+                    <input type="text" class="form-control" name="coverimg" value="<?php echo $row['cover_img_url']; ?>"  required/>
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="Description" class="col-sm-2 col-form-label">Description <span class="text-danger">*</span></label>
                 <div class="col-sm-10">
-                    <textarea class="form-control" name="description" rows="5"><?php echo $row['description']; ?></textarea>
+                    <textarea class="form-control" name="description" rows="5" required><?php echo $row['description']; ?></textarea>
                 </div>
             </div>
             <div class="d-grid gap-2">

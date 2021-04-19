@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Location: form.php?msg=Author is required&name='.$name.'&image='.$image.'&des='.$des);
         exit();
     }
-    if (!preg_match("/^[a-zA-Z-' ]*$/", $author)) {
+    if (!preg_match("/^[a-zA-Z-' \,\.]*$/", $author)) {
         header('Location: form.php?msg=Enter valid Author Name&name='.$name.'&image='.$image.'&des='.$des);
         exit();
     }

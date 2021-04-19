@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Location: edit.php?id='.$id.'&msg=Author is required');
         exit();
     }
-    if (!preg_match("/^[a-zA-Z-' ]*$/", $author)) {
+    if (!preg_match("/^[a-zA-Z-' \,\.]*$/", $author)) {
         header('Location: edit.php?id='.$id.'&msg=Enter valid Author Name');
         exit();
     }
