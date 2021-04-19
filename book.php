@@ -4,7 +4,7 @@ if (isset($_GET['pageno'])) {
 } else {
     $pageno = 1;
 }
-$no_of_records_per_page = 9;
+$no_of_records_per_page = 10;
 $offset = ($pageno - 1) * $no_of_records_per_page;
 
 require_once __DIR__ . '/connection/connect.php';
@@ -29,7 +29,7 @@ if (isset($_GET['book_search'])) {
 }
 $result = $conn->query($sql);
 ?>
-<div class="row row-cols-1 row-cols-md-3 g-5 m-2">
+<div class="row row-cols-1 row-cols-md-5 g-5 m-2">
     <?php
     while ($row = $result->fetch_assoc()) {
     ?>
