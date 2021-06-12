@@ -2,7 +2,7 @@
     $server_name="localhost";
     $host_name="root";
     $password="";
-    $database="elibrary1";
+    $database="elibrary";
     $conn = new mysqli($server_name,$host_name,$password,$database);
 
     if(!$conn)
