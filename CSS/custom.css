@@ -22,6 +22,7 @@ body {
 .card {
   transition: all 0.5s ease;
   opacity: 0.95;
+  border: 2px groove rgba(0, 0, 0, 0.527);
 }
 
 .card:hover {
