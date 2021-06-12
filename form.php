@@ -13,6 +13,7 @@
     $type='form';
     require __DIR__.'/utility/header.php'; ?>
     <!-- Form -->
+    <div class="form">
     <form class="mx-4 m-3 p-3 customform" action="insert.php" method="post">
     <?php
     if (isset($_GET['msg'])) {
@@ -50,7 +51,7 @@
             <input class="btn btn-primary" type="submit" />
         </div>
     </form>
-
+    </div>
     <?php require __DIR__ ."/utility/foot_info.php"; ?>
 </body>
 

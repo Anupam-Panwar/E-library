@@ -4,7 +4,7 @@ if (isset($_GET['pageno'])) {
 } else {
     $pageno = 1;
 }
-$no_of_records_per_page = 10;
+$no_of_records_per_page =10;
 $offset = ($pageno - 1) * $no_of_records_per_page;
 
 require_once __DIR__ . '/connection/connect.php';
@@ -102,8 +102,8 @@ require_once __DIR__ . '/connection/disconnect.php';
 <script>
     var element = document.getElementById('book');
     var width = window.innerWidth;
-    if(width < 1050) {
-        element.classList.add('row-cols-md-4');
+    if(width < 1000) {
+        element.classList.add('row-cols-md-1');
         element.classList.remove('row-cols-md-5');
     }
 </script>

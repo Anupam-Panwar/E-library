@@ -22,6 +22,7 @@
         $result = $conn->query($sql);
         $row = $result->fetch_assoc();
         ?>
+        <div class="form">
         <form class="mx-4 m-3 p-3 customform" action="update.php?id=<?php echo $id ?>" method="post">
         <?php
         if (isset($_GET['msg'])) {
@@ -59,6 +60,7 @@
                 <input class="btn btn-primary" type="submit" value="UPDATE" />
             </div>
         </form>
+        </div>
     <?php
     } else {
         header('Location: index.php');

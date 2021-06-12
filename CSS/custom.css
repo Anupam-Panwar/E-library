@@ -10,18 +10,13 @@ body {
   /*height: 11vw;*/
   object-fit: cover;
 }
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 770px) {
-  .card-img-top {
-    height: 20vw;
-  }
-}
+
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .card-img-top {
     height: 18vw;
   }
-}
+ } 
 
 
 .card {
@@ -104,4 +99,17 @@ body {
 .paginationBottom
 {
     min-height: 75vh;
+}
+
+.form 
+{
+    min-height:80vh;
+}
+@media (min-width:912px) {
+    .form
+    {
+        margin-left:17vw; 
+        margin-right:17vw; 
+    }
+    
 }
