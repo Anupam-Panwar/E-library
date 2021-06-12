@@ -3,7 +3,6 @@
 
 <head>
     <?php require __DIR__ . "/utility/head_info.php"; ?>
-
     <title>E-library</title>
 </head>
 
