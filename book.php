@@ -29,6 +29,7 @@ if (isset($_GET['book_search'])) {
 }
 $result = $conn->query($sql);
 ?>
+<div class="paginationBottom">
 <div class="row row-cols-1 row-cols-md-5 g-5 m-2" id="book">
     <?php
     while ($row = $result->fetch_assoc()) {
@@ -50,13 +51,14 @@ $result = $conn->query($sql);
     }
     ?>
 </div>
+</div>
 <?php
 require_once __DIR__ . '/connection/disconnect.php';
 ?>
 
 
 <!-- pagination -->
-<nav aria-label="Page navigation example" style="display:flex; justify-content:center">
+<nav aria-label="Page navigation example pagination" style="display:flex; justify-content:center">
     <ul class="pagination ">
         <li><a class="page-link" aria-label="First" href="?pageno=1<?php
         if (isset($_GET['book_search']))
@@ -74,7 +76,7 @@ require_once __DIR__ . '/connection/disconnect.php';
                 <span aria-hidden="true">&#139;</span>
             </a>
         </li>
-        <li class="page-item"><a class="page-link" href="#"><?php echo $pageno; ?></a></li>
+        <li class="page-item disabled"><a class="page-link"><?php echo $pageno; ?></a></li>
         <li class="<?php if ($pageno >= $total_pages) {
                         echo 'disabled';
                     } ?> page-item">
