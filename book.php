@@ -29,7 +29,7 @@ if (isset($_GET['book_search'])) {
 }
 $result = $conn->query($sql);
 ?>
-<div class="row row-cols-1 row-cols-md-5 g-5 m-2">
+<div class="row row-cols-1 row-cols-md-5 g-5 m-2" id="book">
     <?php
     while ($row = $result->fetch_assoc()) {
     ?>
@@ -96,3 +96,12 @@ require_once __DIR__ . '/connection/disconnect.php';
 
     </ul>
 </nav>
+
+<script>
+    var element = document.getElementById('book');
+    var width = window.innerWidth;
+    if(width < 1050) {
+        element.classList.add('row-cols-md-4');
+        element.classList.remove('row-cols-md-5');
+    }
+</script>
