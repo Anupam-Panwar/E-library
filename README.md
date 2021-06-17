@@ -12,11 +12,13 @@ For all the love of books, we can never have enough of them. Drop by our office 
 <hr>
 
  ## Wireframe Design
- [Here](https://www.figma.com/file/ZltEAkNVCSx010n1I1l7Ki/Preparatory-Level-1-Exercise?node-id=0%3A1) is the Wireframe Design of the project to get clear insight about the flow control
+ * Wireframe Design of this project can be viewed [Here](https://www.figma.com/file/ZltEAkNVCSx010n1I1l7Ki/Preparatory-Level-1-Exercise?node-id=0%3A1)
+ * It helps to get clear insight about the flow control
 
  ## Database Design
- [Here](https://docs.google.com/presentation/d/1cCBdR38k1DaeXWWLs8ueo0cg5VAnQgqbcFWNAwM_j24/edit?usp=sharing) is the Database Design of the project to get clear insight about handling of data entered into the system
+ * Database Design of this project can be viewed [Here](https://docs.google.com/presentation/d/1cCBdR38k1DaeXWWLs8ueo0cg5VAnQgqbcFWNAwM_j24/edit?usp=sharing)
+ * It helps to get clear insight about handling of data entered into the system
 
 ## Result
-End result of the this project is successfully deployed [here](http://e-library.infinityfreeapp.com/)
+End result of the this project is successfully deployed [Here](http://e-library.infinityfreeapp.com/)
  
