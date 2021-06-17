@@ -42,11 +42,11 @@
 
                         <p class="lead"><?php echo $row['author']; ?></p>
                         <div class="d-grid gap-2 d-md-block">
-                            <button class="btn btn-primary" type="button">
-                                <a href="edit.php?id=<?php echo $id; ?>" class="nodecoration">
-                                    Edit Book
-                                </a>
+                            <a href="edit.php?id=<?php echo $id; ?>" class="nodecoration">
+                            <button class="btn btn-primary" type="button">     
+                                    Edit Book      
                             </button>
+                            </a>
                             <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 Delete Book
                             </button>
